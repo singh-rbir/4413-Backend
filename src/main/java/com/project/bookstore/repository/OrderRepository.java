@@ -151,6 +151,23 @@ public class OrderRepository {
   }
 
   @Transactional
+  public int putCartInDenied(String userId, int orderId){
+    int res = 0;
+    try{
+      Session session = getSession();
+      Query<?> query = session.createNativeQuery("update ORDER set STATUS = :status where USER_ID = :userId and ORDER_ID = :orderId");
+      query.setParameter("status", WConstants.OrderStatus.DENIED.getValue());
+      query.setParameter("orderId", orderId);
+      query.setParameter("userId", userId);
+      res = query.executeUpdate();
+      return res;
+    } catch (Exception e){
+      log.error(e.getMessage(), e);
+      return WConstants.RESULT_UNKNOWN_ERROR;
+    }
+  }
+
+  @Transactional
   public int submitOrder(String userId, int orderId){
     int res = 0;
     try{

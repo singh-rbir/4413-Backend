@@ -122,9 +122,14 @@ public class OrderService {
 
     // Check number of order submit attempts. If > 3, put order in Denied Status
     if (order.getSubmit_attempts() >= WConstants.ORDER_MAX_SUBMIT_ATTEMPTS){
-      json.put("error", -1);
-      json.put("message", "Credit Card Authorization Failed.");
-      return json.toString(4);
+      int res = orderRepository.putCartInDenied(data.getUserId(), order.getOrderId());
+      if(res == 1){
+        json.put("error", -1);
+        json.put("message", "Credit Card Authorization Failed.");
+        return json.toString(4);
+      } else{
+        return Util.getJsonResponse(WConstants.RESULT_UNKNOWN_ERROR, data.getUserId());
+      }
     }
 
     // Payment Details validation
