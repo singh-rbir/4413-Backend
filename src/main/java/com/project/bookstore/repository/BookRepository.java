@@ -4,6 +4,7 @@ import com.project.bookstore.model.BookEntity;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 //Repository for CRUD operation

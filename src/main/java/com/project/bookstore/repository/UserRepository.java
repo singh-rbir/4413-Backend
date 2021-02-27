@@ -4,6 +4,7 @@ import com.project.bookstore.common.WConstants;
 import com.project.bookstore.controller.UserController;
 import com.project.bookstore.model.AddressEntity;
 import com.project.bookstore.model.AddressInputData;
+import com.project.bookstore.model.BookEntity;
 import com.project.bookstore.model.UserEntity;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.UUID;
 
 @Repository

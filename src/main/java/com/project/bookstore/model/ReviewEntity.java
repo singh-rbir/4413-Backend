@@ -3,7 +3,7 @@ package com.project.bookstore.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "REVIEW", schema = "JRV77878", catalog = "")
+@Table(name = "REVIEW", schema = "GVG91693", catalog = "")
 public class ReviewEntity {
   private int reviewId;
   private int bid;

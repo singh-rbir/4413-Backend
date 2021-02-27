@@ -1,13 +1,11 @@
 package com.project.bookstore.model;
 
-import org.hibernate.annotations.Cascade;
-
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "ORDER", schema = "JRV77878", catalog = "")
+@Table(name = "ORDER", schema = "GVG91693", catalog = "")
 public class OrderEntity {
   private int orderId;
   private String userId;

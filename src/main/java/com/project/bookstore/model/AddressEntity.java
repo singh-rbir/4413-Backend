@@ -3,7 +3,7 @@ package com.project.bookstore.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "ADDRESS", schema = "JRV77878", catalog = "")
+@Table(name = "ADDRESS", schema = "GVG91693", catalog = "")
 public class AddressEntity {
   private String addressId;
   private Integer streetNo;

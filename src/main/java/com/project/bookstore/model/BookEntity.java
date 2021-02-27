@@ -2,8 +2,10 @@ package com.project.bookstore.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "book", schema = "GVG91693", catalog = "")
 public class BookEntity {
 
     @Id
@@ -29,6 +31,7 @@ public class BookEntity {
         this.category = category;
         this.images = images;
     }
+
 
     public int getBid() {
         return bid;
@@ -92,5 +95,19 @@ public class BookEntity {
 
     public void setImages(String images) {
         this.images = images;
+    }
+
+    @Override
+    public String toString() {
+        return "BookEntity{" +
+                "bid=" + bid +
+                ", title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", format='" + format + '\'' +
+                ", stars=" + stars +
+                ", price=" + price +
+                ", category='" + category + '\'' +
+                ", images='" + images + '\'' +
+                '}';
     }
 }

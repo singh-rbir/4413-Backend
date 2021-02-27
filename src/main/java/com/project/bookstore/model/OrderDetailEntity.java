@@ -3,7 +3,7 @@ package com.project.bookstore.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "ORDER_DETAIL", schema = "JRV77878", catalog = "")
+@Table(name = "ORDER_DETAIL", schema = "GVG91693", catalog = "")
 @IdClass(OrderDetailEntityPK.class)
 public class OrderDetailEntity {
   private int orderId;

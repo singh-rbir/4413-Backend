@@ -1,7 +1,9 @@
 package com.project.bookstore.repository;
 
 import com.project.bookstore.common.Util;
+import com.project.bookstore.common.WConstants;
 import com.project.bookstore.controller.UserController;
+import com.project.bookstore.model.BookEntity;
 import com.project.bookstore.model.BooksSoldData;
 import com.project.bookstore.model.CartItem;
 import org.hibernate.Session;
@@ -87,6 +89,33 @@ public class AdminRepository {
     } catch (Exception e){
       log.error(e.getMessage(), e);
       return null;
+    }
+  }
+
+
+  @Transactional
+  public int insertBooks(ArrayList<BookEntity> list){
+    Session session = getSession();
+    try{
+      for (BookEntity bookEntity : list) {
+        Query<?> query = session.createNativeQuery("insert into book (TITLE, AUTHOR, FORMAT, STARS, PRICE, CATEGORY, IMAGES) values (:t, :a, :f, :s, :p, :c, :i)");
+        query.setParameter("t", bookEntity.getTitle());
+        query.setParameter("a", bookEntity.getAuthor());
+        query.setParameter("f", bookEntity.getFormat());
+        query.setParameter("s", bookEntity.getStars());
+        query.setParameter("p", bookEntity.getPrice());
+        query.setParameter("c", bookEntity.getCategory());
+        query.setParameter("i", bookEntity.getImages());
+        int res = query.executeUpdate();
+        if (res != 1) {
+          log.error("something went wrong with bid: " + bookEntity.bid);
+          break;
+        }
+      }
+      return WConstants.RESPONSE_SUCCESS;
+    } catch (Exception e){
+      log.debug(e.getMessage(), e);
+      return WConstants.RESULT_UNKNOWN_ERROR;
     }
   }
 

@@ -6,9 +6,11 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.sql.Timestamp;
 
-@Entity (name = "user")
+@Entity
+@Table(name = "user", schema = "GVG91693", catalog = "")
 public class UserEntity {
 
   @Id

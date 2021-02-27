@@ -1,19 +1,29 @@
 package com.project.bookstore.common;
 
 import com.project.bookstore.controller.UserController;
+import com.project.bookstore.model.BookEntity;
+import com.project.bookstore.repository.UserRepository;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
+import org.springframework.stereotype.Service;
 
 import javax.xml.bind.DatatypeConverter;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.security.MessageDigest;
+import java.util.ArrayList;
 
 public class Util {
 
-  static Logger log = LoggerFactory.getLogger(UserController.class);
+  static Logger log = LoggerFactory.getLogger(Util.class);
 
 
   public static String getJsonResponse(int statusCode, @Nullable String user_id){

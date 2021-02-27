@@ -1,12 +1,14 @@
 package com.project.bookstore.service;
 
 import com.project.bookstore.common.WConstants;
+import com.project.bookstore.model.BookEntity;
 import com.project.bookstore.model.BooksSoldData;
 import com.project.bookstore.repository.AdminRepository;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -60,5 +62,8 @@ public class AdminService {
     return table.toString();
   }
 
+  public int insertBooks(ArrayList<BookEntity> list){
+    return adminRepository.insertBooks(list);
+  }
 
 }
