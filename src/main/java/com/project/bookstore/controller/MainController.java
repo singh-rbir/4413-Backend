@@ -28,7 +28,7 @@ public class MainController {
     return new ModelAndView("error404");
   }
 
-  @Scheduled(cron = "0 */30 * * * *")
+  @Scheduled(cron = "0 */10 * * * *")
   public void dummyWorkerJob(){
     log.error("cron job ran");
   }
